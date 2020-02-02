@@ -13,7 +13,15 @@ export default class LoginScreen extends Component {
         console.log("username located")
         //if username is found in DB return to mach screen
         //else alert them that username is not located
-        this.props.navigation.navigate('Match',{userName:user})
+
+        var userArr = JSON.parse(getUsers());
+
+        for(let i = 0; i < userArr.length();i++){
+            if (userArr[i] == this.state.username){
+                this.props.navigation.navigate('Match',{userName:user})
+            }
+        }
+        Alert.alert("Username not found");
     }
 
     render(){

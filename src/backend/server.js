@@ -12,8 +12,8 @@ mongoose.connect(config.db.uri, { useNewUrlParser: true, useUnifiedTopology: tru
 
 // Logger that outputs all requests into the console
 app.use(morgan('combined'));
-//app.use(bodyParser.urlencoded({ extended: false }));
-//app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(router);
 
 const server = app.listen(3000, "127.0.0.1", () => {
@@ -77,7 +77,7 @@ export async function getUsers() {
         return result.json();
     }).then(data => {
         return data;
-    });
+    }).catch((err)=> {throw err});
 }
 
 export async function getMatches() {
@@ -87,5 +87,5 @@ export async function getMatches() {
         return result.json();
     }).then(data => {
         return data;;
-    });
+    }).catch((err)=> {throw err});
 }
