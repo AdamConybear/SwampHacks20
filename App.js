@@ -10,10 +10,12 @@ const navigator = createStackNavigator(
     Match: MatchedScreen
   },
   {
-    initialRouteName: 'Profile',
+    initialRouteName: 'Match',
     defaultNavigationOptions: {
-      title: 'App',
-      headerLeft: null
+      title: 'Confided',
+      //headerLeft: null
+      headerTintColor: '#26A69A',
+      headerBackTitle: 'Back'
     }
   }
 );
