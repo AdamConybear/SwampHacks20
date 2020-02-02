@@ -143,7 +143,7 @@ export default class MatchedScreen extends Component{
                 <View style={{flex:1, bottom: 50}}>
             {/* Rest of the app comes ABOVE the action button component !*/}
                     <ActionButton buttonColor="#00897B">
-                        <ActionButton.Item buttonColor='#9e2c64' title="Update Profile" onPress={() => this.goProfile()}>
+                        <ActionButton.Item buttonColor='#9e2c64' title="Create Profile" onPress={() => this.goProfile()}>
                             <Icon name="md-rocket" style={styles.actionButtonIcon} />
                         </ActionButton.Item>
                         <ActionButton.Item buttonColor='#8f2c9e' title="Login" onPress={() => this.goLogin()}>

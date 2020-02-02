@@ -51,6 +51,7 @@ export default class ProfileScreen extends Component {
     saveUserData = () => {
         var userData = JSON.stringify({"user":this.state.username,"help": this.state.help,"gender": this.state.gender,"aboveEighteen":this.state.aboveEighteen,"problem":this.state.problem});
         //add userdata to function param
+        Alert.alert("Your profile has been created")
         console.log('Profile saved');
     }
         
@@ -61,8 +62,10 @@ export default class ProfileScreen extends Component {
 
         if(this.state.username == ''){ /* username already exists*/
             Alert.alert("Please enter a username");
-        }else if(this.state.gender == '' || this.state.problem == '' || this.state.aboveEighteen == '' || this.state.help == ''){
+        }else if(this.state.gender == '' || this.state.problem == ''){
             Alert.alert("Please fill out all sections");
+        }else if(this.state.help){
+
         }else{
             //add user to mongoDB
             this.saveUserData(); //save user data to local async
@@ -142,7 +145,7 @@ export default class ProfileScreen extends Component {
                     </View>
                     <View style={styles.buttonStyle}> 
                         <TouchableOpacity style={styles.button} onPress = {() => this.checkSettings()}>
-                            <Text style= {styles.Buttontext}>Update Profile</Text>
+                            <Text style= {styles.Buttontext}>Create Profile</Text>
                         </TouchableOpacity>
                         
                     </View>
@@ -195,7 +198,7 @@ const styles = StyleSheet.create({
     },
     inputStyle: {
         padding: 10,
-        borderRadius: 7,
+        borderRadius: 8,
         borderColor: '#26A69A',
         borderWidth: 2,
         marginBottom: 10

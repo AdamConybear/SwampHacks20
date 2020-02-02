@@ -5,35 +5,38 @@ export default class LoginScreen extends Component {
     constructor(){
         super();
         this.state = {
-            username: ''
+            username: '',
         }
     }
 
     loadUser = (user) => {
+        console.log("username located")
+        //if username is found in DB return to mach screen
+        //else alert them that username is not located
         this.props.navigation.navigate('Match',{userName:user})
     }
 
     render(){
         return(
-            <View>
-                <Text style={styles.about}>Enter your username</Text>
-                <TextInput  
-                    placeholder="fluffyPanda19"  
-                    underlineColorAndroid='transparent'  
-                    autoCapitalize = 'none'
-                    autoCorrect = {false}
-                    clearButtonMode = 'always'
-                    style={styles.inputStyle}  
-                    onChangeText = {username => this.setState({username})}
-                />
+            <View style={{backgroundColor:'#f3f3f3x'}}>
+                <View>
+                    <Text style={styles.about}>Enter your username</Text>
+                    <TextInput  
+                        placeholder="fluffyPanda19"  
+                        underlineColorAndroid='transparent'  
+                        autoCapitalize = 'none'
+                        autoCorrect = {false}
+                        clearButtonMode = 'always'
+                        style={styles.inputStyle}  
+                        onChangeText = {username => this.setState({username})}
+                    />
+                </View>
 
                <View style={styles.buttonStyle}> 
                     <TouchableOpacity style={styles.button} onPress = {() => this.loadUser(this.state.username)}>
                         <Text style= {styles.Buttontext}>Enter</Text>
                     </TouchableOpacity>
                 </View>
-
-
             </View>
         );
     }
@@ -44,7 +47,7 @@ const styles = StyleSheet.create({
     about: {
         textAlign:'center',
         fontSize: 24,
-        padding: 5,
+        padding: 15,
         fontWeight:'bold'
         
     },
