@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Text, StyleSheet,View,TouchableOpacity, AsyncStorage,Button,Image, Alert} from 'react-native';
-//import ActionButton from 'react-native-action-button';
-//import Icon from 'react-native-vector-icons/Ionicons';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 //import styled from 'styled-components/native'
 //import * as Font from 'expo-font';
@@ -105,7 +105,13 @@ export default class MatchedScreen extends Component{
     // showMatch = ()=> {
     //     if
     // }
+    goProfile = () => {
+        this.props.navigation.navigate('Profile');
+    }
 
+    goLogin =() => {
+        this.props.navigation.navigate('Login');
+    }
 
     render(){
         return(
@@ -132,6 +138,18 @@ export default class MatchedScreen extends Component{
                     <TouchableOpacity style={styles.matchedStyle} onPress = {() => this.goChat(this.state.matchOne)}>
                         <Text style={{fontSize:22, fontWeight:'bold'}}>{this.state.matchOne}</Text>
                     </TouchableOpacity>
+                </View>
+
+                <View style={{flex:1, bottom: 50}}>
+            {/* Rest of the app comes ABOVE the action button component !*/}
+                    <ActionButton buttonColor="#00897B">
+                        <ActionButton.Item buttonColor='#9e2c64' title="Update Profile" onPress={() => this.goProfile()}>
+                            <Icon name="md-rocket" style={styles.actionButtonIcon} />
+                        </ActionButton.Item>
+                        <ActionButton.Item buttonColor='#8f2c9e' title="Login" onPress={() => this.goLogin()}>
+                            <Icon name="md-cloud" style={styles.actionButtonIcon} />
+                        </ActionButton.Item>
+                    </ActionButton>
                 </View>
                 {/* <View style={{flex:2}}>
                     <TouchableOpacity style={styles.matchedStyle} onPress = {() => this.goChat(this.state.matchTwo)}>
@@ -160,9 +178,9 @@ export default class MatchedScreen extends Component{
                         <Text style= {styles.buttonText}>Pair Me</Text>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={styles.learningStyle} onPress = {() => this.props.navigation.navigate('Profile')}>
+                {/* <TouchableOpacity style={styles.learningStyle} onPress = {() => this.props.navigation.navigate('Profile')}>
                     <Image source={require('../../assets/settings.png')}/>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
 
         );
