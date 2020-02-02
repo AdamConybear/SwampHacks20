@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 2324,
-  "expoServerNgrokUrl": "https://sq-75q.anonymous.swamphacks20.exp.direct",
-  "packagerNgrokUrl": "https://packager.sq-75q.anonymous.swamphacks20.exp.direct",
-  "ngrokPid": 2340
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
