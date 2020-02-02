@@ -24,7 +24,7 @@ export default class PinScreen extends Component {
       this.setState({code:''});
     }else{
       //move on to next screen
-      this.props.navigation.navigate('Profile');
+      this.props.navigation.navigate('Match');
     }
   }
 
