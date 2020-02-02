@@ -2,15 +2,17 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import PinScreen from './src/screens/PinScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import MatchedScreen from './src/screens/MatchedScreen';
+import MessageScreen from './src/screens/MessageScreen';
 
 const navigator = createStackNavigator(
   {
     Login: PinScreen,
     Profile: ProfileScreen,
-    Match: MatchedScreen
+    Match: MatchedScreen,
+    Messaging: MessageScreen,
   },
   {
-    initialRouteName: 'Profile',
+    initialRouteName: Profile,
     defaultNavigationOptions: {
       title: 'App',
       headerLeft: null
