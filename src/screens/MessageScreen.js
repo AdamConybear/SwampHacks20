@@ -57,6 +57,3 @@ class MessageScreen extends Component {
 }
 
 export default MessageScreen;
-
-
-

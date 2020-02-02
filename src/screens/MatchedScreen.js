@@ -99,7 +99,7 @@ export default class MatchedScreen extends Component{
     }
     goChat =(match) =>{
         //pass user and who they are matched with to chat screen
-        this.props.navigation.navigate('Profile', {matched:match});
+        this.props.navigation.navigate('Chat', {matched:match});
     }
 
     // showMatch = ()=> {

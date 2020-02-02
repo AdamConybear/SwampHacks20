@@ -3,16 +3,18 @@ import PinScreen from './src/screens/PinScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import MatchedScreen from './src/screens/MatchedScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import MessageScreen from './src/screens/MessageScreen';
 
 const navigator = createStackNavigator(
   {
-    Login: PinScreen,
+    Pin: PinScreen,
     Profile: ProfileScreen,
     Match: MatchedScreen,
-    Login: LoginScreen
+    Login: LoginScreen,
+    Chat: MessageScreen,
   },
   {
-    initialRouteName: 'Match',
+    initialRouteName: 'Pin',
     defaultNavigationOptions: {
       title: 'Confided',
       //headerLeft: null
