@@ -46,7 +46,10 @@ export default class ProfileScreen extends Component {
             console.log(this.state.aboveEighteen);
             console.log(this.state.problem);
             console.log(this.state.username);
-            //this.props.navigation.navigate('Match');//if everything is filled out correct send them to matching screen
+            this.props.navigation.navigate('Match',{
+                username: this.state.username,
+            });
+            //if everything is filled out correct send them to matching screen
         }
     }
 
