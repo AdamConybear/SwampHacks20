@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Text, StyleSheet,View,TextInput, TouchableOpacity,Button,Image, Alert} from 'react-native';
+//import { getUsers } from '../backend/server';
 
 export default class LoginScreen extends Component {
     constructor(){
@@ -10,18 +11,19 @@ export default class LoginScreen extends Component {
     }
 
     loadUser = (user) => {
-        console.log("username located")
-        //if username is found in DB return to mach screen
-        //else alert them that username is not located
+        // console.log("username located")
+        // //if username is found in DB return to mach screen
+        // //else alert them that username is not located
 
-        var userArr = JSON.parse(getUsers());
+        // var userArr = JSON.parse(getUsers());
 
-        for(let i = 0; i < userArr.length();i++){
-            if (userArr[i] == this.state.username){
-                this.props.navigation.navigate('Match',{userName:user})
-            }
-        }
-        Alert.alert("Username not found");
+        // for(let i = 0; i < userArr.length();i++){
+        //     if (userArr[i] == this.state.username){
+        //         this.props.navigation.navigate('Match',{userName:user})
+        //     }
+        // }
+        // Alert.alert("Username not found");
+        this.props.navigation.navigate('Match',{userName:user})
     }
 
     render(){

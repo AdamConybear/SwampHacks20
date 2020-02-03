@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Text, StyleSheet,View, TouchableOpacity, Alert, TextInput, AsyncStorage, SafeAreaView,ScrollView } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import RadioForm from 'react-native-simple-radio-button';
-import server, { addUser, getUsers } from '../backend/server';
+//import { addUser, getUsers } from '../backend/server';
 
 var gender_props = [
     {label: 'Male', value: 'male' },
@@ -40,20 +40,20 @@ export default class ProfileScreen extends Component {
         }
     }
 
-    // _storeData = async () => {
-    //     try {
-    //         await AsyncStorage.setItem(this.state.username, JSON.stringify({"help":this.state.help,"gender": this.state.gender,"aboveEighteen": this.state.aboveEighteen,"problem":this.state.problem}));
-    //         console.log("Profile saved!");
-    //     } catch (error) {
-    //         // Error saving data
-    //         console.log("error saving data");
-    //     }
-    // };
+    _storeData = async () => {
+        try {
+            await AsyncStorage.setItem(this.state.username, JSON.stringify({"help":this.state.help,"gender": this.state.gender,"aboveEighteen": this.state.aboveEighteen,"problem":this.state.problem}));
+            console.log("Profile saved!");
+        } catch (error) {
+            // Error saving data
+            console.log("error saving data");
+        }
+    };
     saveUserData = () => {
         try{
-            var userData = JSON.stringify({"user":this.state.username,"help": this.state.help,"gender": this.state.gender,"aboveEighteen":this.state.aboveEighteen,"problem":this.state.problem});
+            //var userData = JSON.stringify({"user":this.state.username,"help": this.state.help,"gender": this.state.gender,"aboveEighteen":this.state.aboveEighteen,"problem":this.state.problem});
             //add userdata to function param
-            addUser(userData); // add user to database
+            //addUser(userData); // add user to database
             Alert.alert("Your profile has been created")
             console.log('Profile saved');
         }catch{
@@ -64,20 +64,20 @@ export default class ProfileScreen extends Component {
 
     checkSettings = () => {
         //iterate through all users check to make sure this.state.username != username in DB
-        var userArr = JSON.parse(getUsers());
-        var count = 0;
+        // var userArr = JSON.parse(getUsers());
+        // var count = 0;
 
-        for(let i = 0; i < userArr.length();i++){
-            if (userArr[i] == this.state.username){
-                count++;
-            }
-        }
+        // for(let i = 0; i < userArr.length();i++){
+        //     if (userArr[i] == this.state.username){
+        //         count++;
+        //     }
+        // }
         
-        if(count > 0){
-            Alert.alert("Username is taken! Choose another");
-            count = 0;
-        }
-        else if(this.state.username == ''){ /* username already exists*/
+        // if(count > 0){
+        //     Alert.alert("Username is taken! Choose another");
+        //     count = 0;
+        // }
+        if(this.state.username == ''){ /* username already exists*/
             Alert.alert("Please enter a username");
         }else if(this.state.gender == '' || this.state.problem == ''){
             Alert.alert("Please fill out all sections");
@@ -85,6 +85,7 @@ export default class ProfileScreen extends Component {
 
         }else{
             //add user to mongoDB
+            this._storeData();
             this.saveUserData(); //save user data to local async
             this.props.navigation.navigate('Match',{
                 userName: this.state.username}); // pass along username

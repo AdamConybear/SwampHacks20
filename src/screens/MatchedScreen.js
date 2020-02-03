@@ -23,21 +23,21 @@ export default class MatchedScreen extends Component{
         }
     }
 
-    // _retrieveData = async () => {
-    // try {
-    //     console.log(this.state.user);
-    //     const value = await AsyncStorage.getItem(this.state.user);
-    //     const obj = JSON.parse(value);
-    //     console.log(obj.gender);
-    //     if (obj.gender !== '') {
-    //         // We have data!!     
-    //         console.log(obj.gender);
-    //     }
-    // } catch (error) {
-    //     // Error retrieving data
-    //     console.log("error retrieving data");
-    // }
-    // };
+    _retrieveData = async () => {
+    try {
+        console.log(this.state.user);
+        const value = await AsyncStorage.getItem(this.state.user);
+        const obj = JSON.parse(value);
+        console.log(obj.gender);
+        if (obj.gender !== '') {
+            // We have data!!     
+            console.log(obj.gender);
+        }
+    } catch (error) {
+        // Error retrieving data
+        console.log("error retrieving data");
+    }
+    };
     // async componentDidMount() {
     //     await Font.loadAsync({
     //         'Dosis-Light': require('../../assets/fonts/Dosis-Light.ttf'
