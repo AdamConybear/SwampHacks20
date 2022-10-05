@@ -10,7 +10,7 @@
   "dependencies": {
     "@haskkor/react-native-pincode": "^1.21.1",
     "body-parser": "^1.19.0",
-    "expo": "^33.0.7",
+    "expo": "^46.0.14",
     "express": "^4.17.1",
     "mongoose": "^5.8.11",
     "morgan": "^1.9.1",
